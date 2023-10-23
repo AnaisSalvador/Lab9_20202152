@@ -1,8 +1,10 @@
 package com.example.lab9_20202152.controller;
 import com.example.lab9_20202152.entity.Deporte;
 import com.example.lab9_20202152.repository.DeporteRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -38,5 +40,7 @@ public class DeporteController {
         responseJson.put("Deporte", "registrado-creado");
         return ResponseEntity.status(HttpStatus.CREATED).body(responseJson);
     }
+
+
 
 }
