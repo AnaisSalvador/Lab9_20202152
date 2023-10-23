@@ -36,7 +36,7 @@ public class ParticipanteController {
         if (fetchId) {
             responseJson.put("id", participante.getId());
         }
-        responseJson.put("Deporte", "registrado-creado");
+        responseJson.put("Partido", "registrado-creado");
         return ResponseEntity.status(HttpStatus.CREATED).body(responseJson);
     }
 

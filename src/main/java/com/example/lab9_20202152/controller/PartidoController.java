@@ -31,7 +31,21 @@ public class PartidoController {
     public List<Partido> listaPartido() {
         return partidoRepository.findAll();
     }
+    //Crear
+    @PostMapping(value = {"/registro", ""})
+    public ResponseEntity<HashMap<String, Object>> guardarPartido(
+            @RequestBody Partido partido,
+            @RequestParam(value = "fetchId", required = false) boolean fetchId) {
 
+        HashMap<String, Object> responseJson = new HashMap<>();
+
+        partidoRepository.save(partido);
+        if (fetchId) {
+            responseJson.put("id", partido.getId());
+        }
+        responseJson.put("Partido", "registrado-creado");
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseJson);
+    }
     @PutMapping(value = {"", "/"}, consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
     public ResponseEntity<HashMap<String, Object>> actualizar(Partido nombreRecibio) {
 
@@ -115,23 +129,6 @@ public class PartidoController {
         }
     }
 
-
-
-    //Crear
-    @PostMapping(value = {"/registro", ""})
-    public ResponseEntity<HashMap<String, Object>> guardarPartido(
-            @RequestBody Partido partido,
-            @RequestParam(value = "fetchId", required = false) boolean fetchId) {
-
-        HashMap<String, Object> responseJson = new HashMap<>();
-
-        partidoRepository.save(partido);
-        if (fetchId) {
-            responseJson.put("id", partido.getId());
-        }
-        responseJson.put("Deporte", "registrado-creado");
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseJson);
-    }
 
 
 
