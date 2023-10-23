@@ -1,6 +1,4 @@
 package com.example.lab9_20202152.controller;
-import com.example.lab9_20202152.entity.Deporte;
-import com.example.lab9_20202152.entity.Equipo;
 import com.example.lab9_20202152.entity.Participante;
 import com.example.lab9_20202152.repository.ParticipanteRepository;
 import org.springframework.http.HttpStatus;
