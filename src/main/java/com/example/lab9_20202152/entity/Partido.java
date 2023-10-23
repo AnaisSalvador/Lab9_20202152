@@ -14,11 +14,11 @@ public class Partido {
     @Column(name = "idpartido", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "equipoA", nullable = false)
     private Equipo equipoA;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "equipoB", nullable = false)
     private Equipo equipoB;
 

@@ -85,7 +85,7 @@ public class PartidoController {
     }
 
     //get participantes
-    @GetMapping(value = "/getparticipantes")
+    @GetMapping(value = "/getparticipantes/{id}")
     public ResponseEntity<HashMap<String, Object>> buscarParticipantes(@PathVariable("id") String idStr) {
 
 
@@ -107,7 +107,7 @@ public class PartidoController {
         }
     }
     //get historial
-    @GetMapping(value = "/gethistorialpartidos")
+    @GetMapping(value = "/gethistorialpartidos/{id}")
     public ResponseEntity<HashMap<String, Object>> buscarHistorialPartidos(@PathVariable("id") String idStr) {
 
 
@@ -128,13 +128,6 @@ public class PartidoController {
             return ResponseEntity.badRequest().body(null);
         }
     }
-
-
-
-
-
-
-
 
     //----
     @ExceptionHandler(HttpMessageNotReadableException.class)
