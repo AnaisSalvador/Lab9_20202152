@@ -1,7 +1,8 @@
 package com.example.lab9_20202152.controller;
-import com.example.lab9_20202152.entity.Deporte;
+import com.example.lab9_20202152.entity.Historialpartido;
 import com.example.lab9_20202152.entity.Participante;
 import com.example.lab9_20202152.entity.Partido;
+import com.example.lab9_20202152.repository.HistorialpartidoRepository;
 import com.example.lab9_20202152.repository.ParticipanteRepository;
 import com.example.lab9_20202152.repository.PartidoRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,16 +21,18 @@ import java.util.Optional;
 public class PartidoController {
     final PartidoRepository partidoRepository;
     private final ParticipanteRepository participanteRepository;
+    final HistorialpartidoRepository historialpartidoRepository;
 
     public PartidoController(PartidoRepository partidoRepository,
-                             ParticipanteRepository participanteRepository) {
+                             ParticipanteRepository participanteRepository, HistorialpartidoRepository historialpartidoRepository) {
         this.partidoRepository = partidoRepository;
         this.participanteRepository = participanteRepository;
+        this.historialpartidoRepository = historialpartidoRepository;
     }
     //listar
-    @GetMapping(value = {"/listar", ""})
-    public List<Partido> listaPartido() {
-        return partidoRepository.findAll();
+    @GetMapping(value = {"/gethistorialpartidos"})
+    public List<Historialpartido> listaPartido() {
+        return historialpartidoRepository.findAll();
     }
     //Crear
     @PostMapping(value = {"/registro", ""})
